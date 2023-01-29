@@ -17,8 +17,9 @@ export default function CompassDemo() {
       return;
     }
 
+    // @ts-ignore 
     DeviceOrientationEvent.requestPermission()
-      .then((permissionState) => {
+      .then((permissionState: string) => {
         console.log("state", permissionState);
         if (permissionState === "granted") {
           window.addEventListener("deviceorientation", handleOrientation);
@@ -32,6 +33,7 @@ export default function CompassDemo() {
     if (
       !(
         typeof DeviceOrientationEvent !== "undefined" &&
+        // @ts-ignore
         typeof DeviceOrientationEvent.requestPermission === "function"
       )
     ) {

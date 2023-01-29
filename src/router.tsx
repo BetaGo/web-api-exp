@@ -12,4 +12,6 @@ export const router = createBrowserRouter([
     path: "/demo/compass",
     element: <CompassDemo />,
   },
-]);
+], {
+    basename: '/web-api-exp'
+});
