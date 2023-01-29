@@ -3,13 +3,11 @@ import { useCallback, useEffect, useState } from "react";
 export default function CompassDemo() {
   const [rotate, setRotate] = useState(0);
   const [permitted, setPermitted] = useState(false);
-  const [eventStr, setEventStr] = useState("");
 
   const handleOrientation = useCallback((e: DeviceOrientationEvent) => {
     const { webkitCompassHeading } = e as any;
     console.log(e);
     setRotate(webkitCompassHeading);
-    setEventStr(JSON.stringify(e));
   }, []);
 
   function requestDeviceOrientation() {
@@ -62,9 +60,6 @@ export default function CompassDemo() {
         <div>sw</div>
         <div>S</div>
         <div>se</div>
-      </div>
-      <div>
-        <pre>{eventStr}</pre>
       </div>
     </div>
   );
